@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table name="device" catalog="fddm" class="deviceentity"></table>
+	<table name="devicecheckinout" catalog="fddm"
+		class="devicecheckinoutentity">
+	</table>
+	<table name="user" catalog="fddm" class="userentity"></table>
+</hibernate-reverse-engineering>

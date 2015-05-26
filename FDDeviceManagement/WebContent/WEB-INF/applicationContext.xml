@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver">
+		</property>
+		<property name="url" value="jdbc:mysql://localhost:3306/FDDM"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value=""></property>
+	</bean>
+	
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/FDDM/models/Device.hbm.xml</value>
+				<value>com/FDDM/models/Devicecheckinout.hbm.xml</value>
+				<value>com/FDDM/models/User.hbm.xml</value></list>
+		</property></bean>
+		
+
+	
+	<bean id="DeviceDao" class="com.FDDM.dao.DeviceDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+    </bean>  
+    
+	<bean id="DevicecheckinoutDao"
+		class="com.FDDM.dao.DevicecheckinoutDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="UserDao" class="com.FDDM.dao.UserDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="loginActionBean" class="com.FDDM.action.LoginAction" scope="prototype">
+		<property name="loginuser" ref="loginUserService"></property>
+		</bean>
+		
+		<bean id="loginUserService" class="com.FDDM.serviceImpl.LoginUserImpl" >
+		<property name="userdao" ref="UserDao"></property>
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" /></property>
+		</bean>
+		
+		<bean id="UserActionBean" class="com.FDDM.action.UserAction" scope="prototype">
+		<property name="userservice" ref="UserServiceBean"></property>
+		</bean>
+		
+		<bean id="UserServiceBean" class="com.FDDM.serviceImpl.UserServiceImpl" >
+		<property name="devicedao" ref="DeviceDao"></property>
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" /></property>
+		</bean>
+	</beans>

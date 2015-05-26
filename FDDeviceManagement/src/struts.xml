@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"  
+    "http://struts.apache.org/dtds/struts-2.0.dtd">  
+  
+<struts>  
+  
+    <package name="FDDM" extends="struts-default" namespace="/">  
+        <action name="login" class="loginActionBean"> 
+            <result name="input">/index.jsp</result>     
+            <result name="usersuccess">/userDefault.jsp</result>   
+            <result name="adminsuccess">/adminDefault.jsp</result>
+            <result name="fail">/fail.jsp</result>
+        </action>  
+        
+        <action name="inventory" class="UserActionBean" method="showinventory">
+			<result name="success">/inventory.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+        
+    </package>  
+  
+</struts> 
