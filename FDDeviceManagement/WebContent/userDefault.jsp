@@ -18,7 +18,7 @@ body
   <frame src="top.jsp" name="topFrame" scrolling="no">
   <frameset cols="180,*" name="btFrame" frameborder="NO" border="0" framespacing="0">
     <frame src="usermenu.html" noresize name="menu" scrolling="yes">
-    <frame src="inventory.jsp" noresize name="main" scrolling="yes">
+    <frame src="welcomeUser.jsp" noresize name="main" scrolling="yes">
   </frameset>
 </frameset>
 <noframes>

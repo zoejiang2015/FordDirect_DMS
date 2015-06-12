@@ -25,10 +25,13 @@
         <property name="os" type="java.lang.String">
             <column name="os" length="200" />
         </property>
-        <property name="charge" type="java.lang.Boolean">
+        <property name="browser" type="java.lang.String">
+            <column name="browser" length="200" />
+        </property>
+        <property name="charge" type="java.lang.String">
             <column name="charge" />
         </property>
-        <property name="cable" type="java.lang.Boolean">
+        <property name="cable" type="java.lang.String">
             <column name="cable" />
         </property>
         <property name="intime" type="java.util.Date">

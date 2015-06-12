@@ -7,19 +7,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login Page</title>
 </head>
-<body bgcolor="#98FB98" style="margin: 0 auto;">
-<div>
- <center>
-  <s:form action="login" class="com.FDDM.action.LoginAction">
-     <s:textfield name="username" label="User Name"></s:textfield>
-     <s:password name="password" label="Password"></s:password>
-     <s:submit value="Log In"></s:submit>
-     <s:fielderror cssStyle="color: red">
-     </s:fielderror>
+   
+<body>
+<div id="Layer1" style="position:absolute; width:100%; height:100%; z-index:-10">
+<img src="images/loginbkg.jpg" height="100%" width="100%"/></div>
+<div id="Layer2" style="position: absolute; left: 500px; top: 170px;">
+  
+    <s:form action="login" theme="simple" cssStyle="width:320px; height:200px; font-family: Arial,sans-serif; font-size:1.2em; line-height:50pt; background-color:#EEE8AA; padding:20px 30px;border:2px;border-radius:25px; filter:alpha(opacity=80); -moz-opacity:0.8;-khtml-opacity: 0.8; opacity: 0.8;" class="com.FDDM.action.LoginAction">
+    <td>User Name:&nbsp;</td><td><s:textfield  name="username" cssStyle="width:200px; height: 30px; font-weight: bold;font-size:1.2em;" label="User Name"></s:textfield>
+     <td>Password:&nbsp;&nbsp;&nbsp;</td><td><s:password  name="password" cssStyle="width:200px; height: 30px; font-weight: bold;font-size:1.2em;;" label="Password"></s:password>
+     <s:submit cssStyle="font-family:Arial,sans-serif; font-size:1.2em; width:310px; height:42px; align:center;" value="Log In"></s:submit><br/>
+     <s:fielderror theme="simple" cssStyle="color:red"></s:fielderror>
+     </s:form>
 
- </s:form>
- </center>
- </div>
+</div>
 
 </body>
 </html>

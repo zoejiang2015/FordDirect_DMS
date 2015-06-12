@@ -12,6 +12,7 @@ public interface InterfaceDeviceDao {
 	public static final String MODEL = "model";
 	public static final String NAME = "name";
 	public static final String OS = "os";
+	public static final String BROWSER = "browser";
 	public static final String CHARGE = "charge";
 	public static final String CABLE = "cable";
 

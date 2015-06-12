@@ -4,54 +4,115 @@
 <html>
 	<head>
 		<title>My JSP 'inventory.jsp' starting page</title>
+		<script type="text/javascript" > 
+     function  DeviceCount(n){ 
+        var checkedCount=0; 
+        for(var i=0;i<inventory.device.length ;i ++){ 
+         if(inventory.device[i].checked){ 
+          checkedCount++; 
+
+       } 
+   } 
+    if(checkedCount>n){ 
+
+  alert("One person can check out 3 devices at most!"); 
+       return false; 
+
+  } 
+  } 
+
+</script>
 	</head>
     <style type="text/css">
-    .style{text-align: center}
+    #inventory
+    {
+    font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+    width:100%;
+    border-collapse:collapse;
+    }
+    
+    #inventory td, #inventory th
+    {
+    font-size:1em;
+    border:1px solid #98bf21;
+    padding:3px 7px 2px 7px;
+    }
+    
+    #inventory th
+    {
+    font-size:0.8em;
+    text-align:left;
+    padding-top:5px;
+    padding-bottom:4px;
+    background-color:#A7C942;
+    color:#ffffff;
+    }
+    
+    #inventory tr.alt td
+    {
+    color:#000000;
+    background-color:#EAF2D3;
+    }
+    
+    #inventory tr.disabledAnchor td{
+       pointer-events: none !important;
+       cursor: default;
+       color:Gray;
+     }
     </style>
 	<body>
 	<center>
-		<table border="0.5px" width="800px" class="style" style="margin-top: 50px;">
-		<tr><td colspan="7" background="../skin/images/frame/wbg.gif" style="height:25px; text-align:center"><strong>Current Inventory£º</strong></td></tr>
-			<tr bgcolor="lightgreen">
-			    <td>
-					Device ID
-				</td>
-				<td>
+		<form name="inventory" id="inventory" method="post" >
+		 <table id="inventorytbl" width="1000">
+		<tr><td colspan="9" style="font-size:1.1em; height:50px; text-align:center"><strong>Current Inventory£º</strong></td></tr>
+			<tr>
+				<th>
 					Brand
-				</td>
-				<td>
+				</th>
+				<th>
 					Type
-				</td>
-				<td>
+				</th>
+				<th>
 					Model
-				</td>
-				<td>
+				</th>
+				<th>
 					Name
-				</td>
-				<td>
+				</th>
+				<th>
 					OS
-				</td>
-				<td>
+				</th>
+				<th>
+					browser
+				</th>
+				<th>
 					Charge
-				</td>
-				<td>
+				</th>
+				<th>
 					Cable
-				</td>
+				</th>
+				<th>
+					Operation
+				</th>
 			</tr>
 			<s:iterator value="%{#session.dv}" var="dv">
     	<tr>
-    	    <td align="center"><s:property value="#dv.id" /></td>
-    		<td align="center"><s:property value="#dv.brand" /></td>
-    		<td align="center"><s:property value="#dv.type" /></td>
-    		<td align="center"><s:property value="#dv.model" /></td>
-    		<td align="center"><s:property value="#dv.name" /></td>
-    		<td align="center"><s:property value="#dv.os" /></td>
-    		<td align="center"><s:property value="#dv.charge" /></td>
-    		<td align="center"><s:property value="#dv.cable" /></td>
-    		<td align="center"><a href='select.action?dvid=<s:property value="#dv.id" />'>select</a></td>
+    	    
+    		<td><s:property value="#dv.brand" /></td>
+    		<td><s:property value="#dv.type" /></td>
+    		<td><s:property value="#dv.model" /></td>
+    		<td><s:property value="#dv.name" /></td>
+    		<td><s:property value="#dv.os" /></td>
+    		<td><s:property value="#dv.browser" /></td>
+            <td><s:property value="#dv.charge" /></td>
+            <td><s:property value="#dv.cable" /></td>
+            <td><input  type="checkbox" name="device['<s:property value="#dv.id" />'-1]" value="<s:property value="#dv.id" />" onClick="return DeviceCount(3)">select</td>
+<%--     		<td><a href='select.action?dvid=<s:property value="#dv.id" />'>select</a></td> --%>
     	</tr>
     	</s:iterator>
-		</table>
+    	</table>
+    	  <input type="submit" value="Check Out selected Devices">
+           <input type="reset" value="Reset">
+		</form>
 		</center>
 	</body>
 </html>

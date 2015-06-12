@@ -21,8 +21,9 @@ public class Device implements java.io.Serializable {
 	private String model;
 	private String name;
 	private String os;
-	private Boolean charge;
-	private Boolean cable;
+	private String charge;
+	private String cable;
+	private String browser;
 	private Date intime;
 	private Date decommissiontime;
 	private Set devicecheckinouts = new HashSet(0);
@@ -35,13 +36,14 @@ public class Device implements java.io.Serializable {
 
 	/** full constructor */
 	public Device(String brand, String type, String model, String name,
-			String os, Boolean charge, Boolean cable, Date intime,
+			String os, String charge, String cable, String browser, Date intime,
 			Date decommissiontime, Set devicecheckinouts) {
 		this.brand = brand;
 		this.type = type;
 		this.model = model;
 		this.name = name;
 		this.os = os;
+		this.browser = browser;
 		this.charge = charge;
 		this.cable = cable;
 		this.intime = intime;
@@ -98,20 +100,28 @@ public class Device implements java.io.Serializable {
 	public void setOs(String os) {
 		this.os = os;
 	}
+	
+	public String getBrowser() {
+		return this.browser;
+	}
 
-	public Boolean getCharge() {
+	public void setBrowser(String browser) {
+		this.browser = browser;
+	}
+
+	public String getCharge() {
 		return this.charge;
 	}
 
-	public void setCharge(Boolean charge) {
+	public void setCharge(String charge) {
 		this.charge = charge;
 	}
 
-	public Boolean getCable() {
+	public String getCable() {
 		return this.cable;
 	}
 
-	public void setCable(Boolean cable) {
+	public void setCable(String cable) {
 		this.cable = cable;
 	}
 

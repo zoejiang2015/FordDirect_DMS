@@ -59,6 +59,8 @@ public class LoginAction extends ActionSupport {
 
 	public String execute() throws Exception{
 		User user = loginuser.loginValidation(username, password);
+		    if(username!=null&&password!=null)
+		    {
 			   if(user != null){
 				   if(password.equals(user.getPassword())){
 			         ActionContext.getContext().getSession().put("usersession", user);	
@@ -77,8 +79,9 @@ public class LoginAction extends ActionSupport {
 		           return "input"; 
 			   }
 			}
+		    return "input"; 
 	
-    	   
+	}	   
 }
 
 

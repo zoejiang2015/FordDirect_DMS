@@ -51,7 +51,7 @@
 
 </script>
 <style>
-body { padding:0px; margin:0px; }
+body { padding:0px; margin:0px;}
 #tpa {
 	color: #009933;
 	margin:0px;
@@ -140,11 +140,11 @@ a:link,a:visited {
   <tr>
     <td width='20%' height="60"><img src="skin/images/frame/logo.gif" /></td>
     <td width='80%' align="right" valign="bottom">
-    	<table width="750" border="0" cellspacing="0" cellpadding="0">
+    	<table width="750" border="0" cellspacing="0" cellpadding="0" >
       <tr>
-      <td align="right" height="26" style="padding-right:10px;line-height:26px;">
-        	Hello: <span class="username">${sessionScope.username}</span>. Welcome to Ford Direct Device Management System !
-        	[<a href="index.jsp" target="_top">Log out</a>]&nbsp;
+      <td align="right" height="26" style="padding-right:200px;line-height:30px;font-family:Arial,sans-serif; font-size:1.2em; ">
+        	Hello: <span style="font-family:Arial,sans-serif; font-size:1.2em;" class="username">${sessionScope.username}</span>!
+        	[<a style="font-family:Arial,sans-serif; font-size:1.2em;" href="index.jsp" target="_top">Log out</a>]&nbsp;
       </td>
       </tr>
       <tr>
