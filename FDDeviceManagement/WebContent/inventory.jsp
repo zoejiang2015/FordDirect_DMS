@@ -6,16 +6,17 @@
 		<title>My JSP 'inventory.jsp' starting page</title>
 		<script type="text/javascript" > 
      function  DeviceCount(n){ 
-        var checkedCount=0; 
-        for(var i=0;i<inventory.device.length ;i ++){ 
-         if(inventory.device[i].checked){ 
-          checkedCount++; 
+        var checkedCount=0;
+        var devices=document.getElementsByName("device[]");
+         for(var i=0;i<devices.length ;i ++){ 
+          if(devices[i].checked){ 
+           checkedCount++; 
 
-       } 
-   } 
+           } 
+           } 
     if(checkedCount>n){ 
 
-  alert("One person can check out 3 devices at most!"); 
+  alert("One person can check out "+n+" devices at most!"); 
        return false; 
 
   } 
@@ -105,7 +106,7 @@
     		<td><s:property value="#dv.browser" /></td>
             <td><s:property value="#dv.charge" /></td>
             <td><s:property value="#dv.cable" /></td>
-            <td><input  type="checkbox" name="device['<s:property value="#dv.id" />'-1]" value="<s:property value="#dv.id" />" onClick="return DeviceCount(3)">select</td>
+            <td><input  type="checkbox" name="device[]" value="<s:property value="#dv.id" />" onClick="return DeviceCount(3)">select</td>
 <%--     		<td><a href='select.action?dvid=<s:property value="#dv.id" />'>select</a></td> --%>
     	</tr>
     	</s:iterator>

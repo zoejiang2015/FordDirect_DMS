@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.interceptor.ServletResponseAware;
 
 import com.FDDM.models.Device;
+import com.FDDM.models.Devicecheckinout;
 import com.FDDM.models.User;
 import com.FDDM.services.UserService;
 import com.opensymphony.xwork2.ActionContext;
@@ -51,6 +52,17 @@ public class UserAction implements ServletResponseAware{
 		List<Device> devices = allDevice;
 		if(devices!=null){
 			ActionContext.getContext().getSession().put("dv", devices);
+			return "success";
+		}
+		else
+			return "fail";
+	}
+	
+	public String showCheckinoutList(){
+		List checkinoutList = userservice.getcheckinoutList();
+		List<Devicecheckinout> checkinout = checkinoutList;
+		if(checkinout!=null){
+			ActionContext.getContext().getSession().put("dv", checkinout);
 			return "success";
 		}
 		else
